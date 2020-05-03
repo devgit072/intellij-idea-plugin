@@ -1,0 +1,11 @@
+<templateSet group="yamlSet">
+    <template name="person" value="$type$:&#10; - type: $type$&#10;   traits:&#10;     name: $name$&#10;     age: $age$&#10;     address: $address$" toReformat="false" toShortenFQNames="true">
+        <variable name="type" expression="" defaultValue="" alwaysStopAt="true" />
+        <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+        <variable name="age" expression="" defaultValue="" alwaysStopAt="true" />
+        <variable name="address" expression="" defaultValue="" alwaysStopAt="true" />
+        <context>
+            <option name="YAML" value="true" />
+        </context>
+    </template>
+</templateSet>

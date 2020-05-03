@@ -1,7 +1,6 @@
 package com.devraj.action.searchAction;
 
 import com.intellij.ide.BrowserUtil;
-import com.intellij.lang.Language;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;

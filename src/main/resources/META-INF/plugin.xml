@@ -10,13 +10,15 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
+        <defaultLiveTemplatesProvider implementation="com.devraj.codeGeneration.TemplateProvider"  />
+        <liveTemplateContext implementation="com.devraj.codeGeneration.YamlContext" />
     </extensions>
 
     <actions>
         <!--You can either add Action as standalone or in group.
         When added in group, action will come under a button group-->
         <group id="demoPlugin" text="DemoPlugin" popup="true" >
+            <!--We can use ToolsMenu, ConsoleEditorPopupMenu or EditorPopupMenu. For here let use EditorPopupMenu -->
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
             <!--Id should be class in which Action is implemented, because id is unique, so class will be unique only-->
             <action id="com.devraj.action.searchAction.SearchGoogleAction" class="com.devraj.action.searchAction.SearchGoogleAction" text="Search on Google"

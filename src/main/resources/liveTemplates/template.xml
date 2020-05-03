@@ -1,0 +1,9 @@
+<templateSet group="Java">
+    <template name="classInit" value="private static class $className$ {&#10;   $className$() {&#10;   }&#10;}"
+              description="Generate a inner static class with constructor" toReformat="false" toShortenFQNames="true">
+        <variable name="className" expression="" defaultValue="" alwaysStopAt="true"/>
+        <context>
+            <option name="JAVA_CODE" value="true"/>
+        </context>
+    </template>
+</templateSet>
