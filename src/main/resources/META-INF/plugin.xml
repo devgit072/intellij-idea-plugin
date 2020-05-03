@@ -14,6 +14,14 @@
     </extensions>
 
     <actions>
-        <!-- Add your actions here -->
+        <!--You can either add Action as standalone or in group.
+        When added in group, action will come under a button group-->
+        <group id="demoPlugin" text="DemoPlugin" popup="true" >
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <!--Id should be class in which Action is implemented, because id is unique, so class will be unique only-->
+            <action id="com.devraj.action.searchAction.SearchGoogleAction" class="com.devraj.action.searchAction.SearchGoogleAction" text="Search on Google"
+                    description="Selected word will be searched on google.com">
+            </action>
+        </group>
     </actions>
 </idea-plugin>
