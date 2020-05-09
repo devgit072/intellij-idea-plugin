@@ -8,10 +8,16 @@
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
 
+    <!--Extension point is where plugin will know which class is implementing particular function.
+        So for any particular function, plugin will refer to that class and excute the implementation-->
     <extensions defaultExtensionNs="com.intellij">
         <defaultLiveTemplatesProvider implementation="com.devraj.codeGeneration.TemplateProvider"  />
         <liveTemplateContext implementation="com.devraj.codeGeneration.YamlContext" />
+
+        <completion.contributor language="yaml" implementationClass="com.devraj.autoCompletion.YamlCompletion" />
+        <typedHandler implementation="com.devraj.autoCompletion.AutoPopupHandler" />
     </extensions>
 
     <actions>

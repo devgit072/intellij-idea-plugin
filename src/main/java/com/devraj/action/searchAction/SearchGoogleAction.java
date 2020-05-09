@@ -40,7 +40,7 @@ public class SearchGoogleAction extends AnAction {
     @Override
     public void update(@NotNull AnActionEvent e) {
         Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
-        // ToDO
+        
         // CaretModel is interface which provides information about cursor postion or you can move the cursor.
         CaretModel caretModel = editor.getCaretModel();
         // If there is no word selected, then action will be disabled.

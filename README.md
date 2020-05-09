@@ -22,4 +22,55 @@ To implement generation of boiler-plate code generation, we can use live-templat
 Anyway it is easy and fun to develop a plugin on Intellij-Idea platform and once you learn 
 how to develop a plugin, you can develop a plugin in future which suits your requirements.
 
+Action implemention:  
+Action class is implemented in SearchGoogleAction.java. You also have to register 
+the class name in plugin.xml
+
+Boiler Code generation using live template is implemented in TemplateProvider.java
+
+Code-Completion using code is implemented in autoCompletion package. Code is pretty self documented and can be understood.
+
+Other miscellaneous details:
+
+How to implement notifier:  
+Here is sample code snippet:
+
+
+    public class Notifier implements StartupActivity {
+    private String title, message;
+    NotificationType notificationType;
+    Notifier(String title, String message, NotificationType notificationType) {
+        this.title = title;
+        this.message = message;
+        this.notificationType = notificationType;
+    }
+    @Override
+    public void runActivity(@NotNull Project project) {
+        final Notification notification = new Notification("JsonSchemaNotification", title,
+                message, notificationType);
+        notification.notify(project);
+    }
+    }
+
+
+Call above Class function:  
+  ``new Notifier("blaTitle", "Mesg" , NotificationType.INFO).runActivity(thiProject)``
+  
  
+How to implement background activity:
+This is helpful. Sometime, your UI may freeze if Action takes long time to perform.
+
+`ApplicationManager.getApplication().executeOnPooledThread(new Runnable() {
+                @Override
+                public void run() {
+                    ApplicationManager.getApplication().runReadAction(new TriggerScriptsInBackgound(parameters, project));
+                }
+            });
+`  
+
+`public class TriggerGoScriptsInBackgound implements Runnable {
+    @Override
+    public void run() {
+    }
+}`
+
