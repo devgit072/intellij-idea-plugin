@@ -28,6 +28,8 @@ public class SearchGoogleAction extends AnAction {
         String selectedText = caretModel.getCurrentCaret().getSelectedText();
         String searchQueryUrl = String.format("https://google.com/search?q=%s: %s", programmingLanguage, selectedText);
         BrowserUtil.browse(searchQueryUrl);
+
+        NotifierUtil.notifyUser(e.getProject(), "Search", "Search on default browser has been initiated", String.format("Query url: %s", searchQueryUrl));
     }
 
     /*
@@ -40,7 +42,7 @@ public class SearchGoogleAction extends AnAction {
     @Override
     public void update(@NotNull AnActionEvent e) {
         Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
-        
+
         // CaretModel is interface which provides information about cursor postion or you can move the cursor.
         CaretModel caretModel = editor.getCaretModel();
         // If there is no word selected, then action will be disabled.
